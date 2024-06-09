@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void onCallPress() {
-    final Uri url = Uri.parse("tel:1800-599-0019");
+    final Uri url = Uri.parse("tel:1122");
     launchUrl(url);
   }
 
@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(centerTitle: true, title: const Text('GenZen'), actions: [
+      appBar: AppBar(centerTitle: true, title: const Text('MoodMingle'), actions: [
         IconButton(
           onPressed: onCallPress,
           icon: const Icon(Icons.call),

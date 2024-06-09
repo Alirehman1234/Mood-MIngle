@@ -67,6 +67,15 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
+    Map _userData = {
+      "mood": "",
+      "isMedDone": false,
+      "isMoodDone": false,
+      "isJourDone": false
+    };
+    if(widget.userData is Map) {
+      _userData = widget.userData;
+    }
     return Column(
       children: [
         CalendarDatePicker2(
@@ -83,23 +92,23 @@ class _ProfilePageState extends State<ProfilePage> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Text('Mood ${widget.userData["mood"]}'),
+                    child: Text('Mood ${_userData is Map && _userData.containsKey('mood') ? _userData["mood"] : ""}'),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: widget.userData["isMedDone"]
+                    child: _userData["isMedDone"]
                         ? const Text("Meditation done")
                         : const Text("Meditation not done!"),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: widget.userData["isMoodDone"]
+                    child: _userData["isMoodDone"]
                         ? const Text("Mood done")
                         : const Text("Mood not done!"),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: widget.userData["isJourDone"]
+                    child: _userData["isJourDone"]
                         ? Column(
                             children: [
                               const Text('Journal Done'),
@@ -107,9 +116,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                 height: 40,
                               ),
                               const Text('Journal Contents'),
-                              Text(widget.userData["Journal 1"]),
-                              Text(widget.userData["Journal 2"]),
-                              Text(widget.userData["Journal 3"]),
+                              Text(_userData["Journal 1"]),
+                              Text(_userData["Journal 2"]),
+                              Text(_userData["Journal 3"]),
                             ],
                           )
                         : const Text("Journal not done!"),

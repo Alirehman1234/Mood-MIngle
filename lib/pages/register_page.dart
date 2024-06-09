@@ -33,8 +33,9 @@ class _RegisterPageState extends State<RegisterPage> {
     //try sign up
     try {
       if (passwordController.text == confirmPasswordController.text) {
-        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        var u = await FirebaseAuth.instance.createUserWithEmailAndPassword(
             email: emailController.text, password: passwordController.text);
+            print(u);
         //pop the circle
         // ignore: use_build_context_synchronously
         Navigator.pop(context);
@@ -49,6 +50,10 @@ class _RegisterPageState extends State<RegisterPage> {
       if (e.code == 'email-already-in-use') {
         wrongAuthMessage('Email already registered. Please login. ');
       }
+    } catch(e) {
+      print('------');
+      print(e);
+      wrongAuthMessage(e is String ? e : "Something went wrong");
     }
   }
 
@@ -131,48 +136,48 @@ class _RegisterPageState extends State<RegisterPage> {
                 const SizedBox(height: 50),
 
                 // or continue with
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Divider(
-                          thickness: 0.5,
-                          color: Colors.grey[400],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                        child: Text(
-                          'Or continue with',
-                          style: TextStyle(color: Colors.grey[700]),
-                        ),
-                      ),
-                      Expanded(
-                        child: Divider(
-                          thickness: 0.5,
-                          color: Colors.grey[400],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                // Padding(
+                //   padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                //   child: Row(
+                //     children: [
+                //       Expanded(
+                //         child: Divider(
+                //           thickness: 0.5,
+                //           color: Colors.grey[400],
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                //         child: Text(
+                //           'Or continue with',
+                //           style: TextStyle(color: Colors.grey[700]),
+                //         ),
+                //       ),
+                //       Expanded(
+                //         child: Divider(
+                //           thickness: 0.5,
+                //           color: Colors.grey[400],
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
 
-                const SizedBox(height: 50),
+                // const SizedBox(height: 50),
 
                 // google + apple sign in buttons
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    // google button
-                    SquareTile(imagePath: 'assets/images/google.png'),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.center,
+                //   children: const [
+                //     // google button
+                //     SquareTile(imagePath: 'assets/images/google.png'),
 
-                    SizedBox(width: 25),
+                //     SizedBox(width: 25),
 
-                    // apple button
-                    SquareTile(imagePath: 'assets/images/apple.png')
-                  ],
-                ),
+                //     // apple button
+                //     SquareTile(imagePath: 'assets/images/apple.png')
+                //   ],
+                // ),
 
                 const SizedBox(height: 50),
 

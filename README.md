@@ -1,6 +1,5 @@
-# GenZen  - A Mental Health Monitoring App using Flutter and Firebase.
+# Mood Mingle  - Your Companion to emotional Harmony. 
 
-This is a mental health monitoring app that allows users to assess and monitor their mental health status, track their moods and stress levels, and access resources and information on mental health. The app is built using the Flutter framework and Firebase for backend services.
 This is a mental health monitoring app that allows users to assess and monitor their mental health status, track their moods and stress levels, and access resources and information on mental health. The app is built using the Flutter framework and Firebase for backend services.
 
 ## Features
